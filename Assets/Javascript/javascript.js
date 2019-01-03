@@ -47,7 +47,7 @@ function buttonAddClicks() {
                 results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
-                    var gifDiv = $("<div class='col l3 m4 s12 ctr'>");
+                    var gifDiv = $("<div class='col l3 m5 s6 ctr'>");
                     var rating = results[i].rating;
                     var pRating = $("<p class='shdowone whitefont'>").text("Rating: " + rating);
                     var title = results[i].title;
