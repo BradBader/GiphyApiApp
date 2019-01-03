@@ -18,9 +18,9 @@ var preGif = [
 function buttonPrepare() {
     $("#buttons").empty()
     for (var i = 0; i < preGif.length; i++) {
-        console.log(preGif[i]);
         var buttonDiv = $('<button>');
-        if ( i >= preGif.length && added == true) {
+        if ( i >= (preGif.length-1) && added == true) {
+            console.log("if triggered")
             buttonDiv.addClass("button btn-large grey lighten-1 pulse m10")
             buttonDiv.attr("data-person", preGif[i]);
             buttonDiv.text(preGif[i]);
@@ -45,7 +45,6 @@ function buttonAddClicks() {
         })
             .then(function (response) {
                 results = response.data;
-
 
                 for (var i = 0; i < results.length; i++) {
                     var gifDiv = $("<div class='col l3 m2 s12 ctr'>");
@@ -82,28 +81,9 @@ function buttonAddClicks() {
 
 }
 
-function addGifClicks() {
-    $(".gif").on("click", function () {
-        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-        var state = $(this).attr("data-state");
-        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-        // Then, set the image's data-state to animate
-        // Else set src to the data-still value
-        if (state === "still") {
-            $(this).attr("src", $(this).attr("data-animate"));
-            $(this).attr("data-state", "animate");
-        } else {
-            $(this).attr("src", $(this).attr("data-still"));
-            $(this).attr("data-state", "still");
-        }
-    });
-}
-
-
 $(document).ready(function () {
     buttonPrepare();
     buttonAddClicks();
-    addGifClicks();
     $("#add-Gif").on("click", function (event) {
         event.preventDefault();
         addingGif = $("#form-input").val().trim();
