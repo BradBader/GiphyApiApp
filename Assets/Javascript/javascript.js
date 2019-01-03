@@ -42,8 +42,10 @@ function buttonAddClicks() {
                 for (var i = 0; i < results.length; i++) {
                     var gifDiv = $("<div class='col l3 m2 s12 ctr'>");
                     var rating = results[i].rating;
-                    var p = $("<p class='shdowone whitefont'>").text("Rating: " + rating);
-                    stillImage = $("<img class='stillGif'>");
+                    var pRating = $("<p class='shdowone whitefont'>").text("Rating: " + rating);
+                    var title = results[i].title;
+                    pTitle = $("<p class='shdowone whitefont'>").text(title);
+                    stillImage = $("<img>");
                     stillImage.attr("src", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url).attr("data-still", results[i].images.fixed_height_still.url).attr("data-state", "still").attr("class", "gif"),
                         stillSource = results[i].images.fixed_height_still.url;
                     animatedSource = results[i].images.fixed_height.url;
@@ -61,7 +63,8 @@ function buttonAddClicks() {
                             $(this).attr("data-state", "still");
                         }
                     });
-                    gifDiv.prepend(p);
+                    gifDiv.prepend(pTitle);
+                    gifDiv.prepend(pRating);
                     gifDiv.prepend(stillImage);
                     $("#gifs-appear-here").prepend(gifDiv);
                 }

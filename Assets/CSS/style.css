@@ -89,7 +89,9 @@ h6 {text-shadow: 1px 1px black;
 .ctr { overflow: hidden}
 
 .whitefont {color: white;
-  font-size: 16px;}
+  font-size: 16px;
+  text-transform: capitalize;
+}
 
 
 label {color:white;
