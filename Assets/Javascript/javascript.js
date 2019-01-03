@@ -1,4 +1,5 @@
 sourceValue = 0;
+added = false;
 var preGif = [
     "Jean Claude Van Damme",
     "Chuck Norris",
@@ -19,12 +20,19 @@ function buttonPrepare() {
     for (var i = 0; i < preGif.length; i++) {
         console.log(preGif[i]);
         var buttonDiv = $('<button>');
-        buttonDiv.addClass("button btn-large pulse grey lighten-1 m10")
-        buttonDiv.attr("data-person", preGif[i]);
-        buttonDiv.text(preGif[i]);
-        $("#buttons").prepend(buttonDiv);
-    }
+        if ( i >= preGif.length && added == true) {
+            buttonDiv.addClass("button btn-large grey lighten-1 pulse m10")
+            buttonDiv.attr("data-person", preGif[i]);
+            buttonDiv.text(preGif[i]);
+            $("#buttons").prepend(buttonDiv);
+        } else {
+            buttonDiv.addClass("button btn-large grey lighten-1 m10")
+            buttonDiv.attr("data-person", preGif[i]);
+            buttonDiv.text(preGif[i]);
+            $("#buttons").prepend(buttonDiv);
+        }
 
+    }
 }
 
 function buttonAddClicks() {
@@ -98,9 +106,10 @@ $(document).ready(function () {
     addGifClicks();
     $("#add-Gif").on("click", function (event) {
         event.preventDefault();
-        var addingGif = $("#form-input").val().trim();
+        addingGif = $("#form-input").val().trim();
+        added = true;
+        console.log(added);
         if (addingGif != "") {
-            console.log("this if is working")
             $("#form-input").empty()
             preGif.push(addingGif);
             setTimeout(function () { buttonPrepare() }, 400);
