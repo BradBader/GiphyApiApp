@@ -3,7 +3,6 @@ added = false;
 var preGif = [
     "Jean Claude Van Damme",
     "Chuck Norris",
-    "The Rock",
     "Arnold Schwarzenegger",
     "Sylvester Stalone",
     "Dolph Lundgren",
