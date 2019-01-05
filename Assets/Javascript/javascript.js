@@ -89,7 +89,7 @@ $(document).ready(function () {
         added = true;
         console.log(added);
         if (addingGif != "") {
-            $("#form-input").empty()
+            $("#form-input").val("");
             preGif.push(addingGif);
             setTimeout(function () { buttonPrepare() }, 400);
             setTimeout(function () { buttonAddClicks() }, 400);
